@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import { Image,TextInput } from 'react-native';
-import { theme, withGalio,Text,Input,Icon,GalioProvider, Button} from 'galio-framework'
+import { theme, withGalio,Text,Input,GalioProvider, Button,Icon} from 'galio-framework'
 import { View } from 'native-base';
 import LoginStyle from './Style'
-import image from '../../images/loginBg.png'
 
-class LoginScreen extends Component {
+class RegisterScreen extends Component {
     constructor(props){
         super(props)
         this.state = {
             focus : false
         }
     }
-    onRegister = ()=>{
-        this.props.navigation.navigate('register')
+    componentDidMount(){
+        console.log('res')
     }
     render() {
         const customTheme = {
@@ -27,14 +26,16 @@ class LoginScreen extends Component {
             <GalioProvider theme={customTheme}>
             <View style={LoginStyle.content}>
                 <View style={LoginStyle.header}>
-                    <View style={LoginStyle.bgImage} >
-                    <Image source={image} style={LoginStyle.imgBg}></Image>
-                    </View>
-                    <Text h6 style={LoginStyle.wl}>Welcome Back !!</Text>
-                    <Text muted>
-                        Log in to your account in Library App
+                    <Text>
+                        Back
                     </Text>
                 </View>
+                <View style={LoginStyle.header}>
+                        <Text h6 style={LoginStyle.wl}>Lets Start Your Jurney !!</Text>
+                        <Text muted>
+                            Create your account
+                        </Text>
+                    </View>
                 <View style={LoginStyle.form}>
                     <View style={LoginStyle.formInput}>
                         <Input placeholder="Email" rounded borderless={true} style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} color={'black'}/>
@@ -49,7 +50,7 @@ class LoginScreen extends Component {
                         <Button color={'black'} shadowless round>Log in</Button>
                     </View>
                     <View style={LoginStyle.registerTxt}>
-                        <Text muted>Don't Have account?  </Text><Text onPress={this.onRegister}>Resgister</Text>
+                        <Text muted>Don't Have account?  </Text><Text>Resgister</Text>
                     </View>
                 </View>
             </View>
@@ -58,4 +59,4 @@ class LoginScreen extends Component {
         )
     }
 }
-export default LoginScreen
+export default RegisterScreen

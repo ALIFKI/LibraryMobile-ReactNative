@@ -11,6 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen'
 import HomeScreen from './src/screens/Home';
+import RegisterScreen from './src/screens/RegisterScreen';
 
 
 const Stack = createStackNavigator()
@@ -21,6 +22,7 @@ const App: () => React$Node = () => {
       <Stack.Navigator>
           <Stack.Screen name="login" component={LoginScreen} options={{headerShown:false}}/>
           <Stack.Screen name="home" component={HomeScreen} />
+          <Stack.Screen name="register" component={RegisterScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
     </>
