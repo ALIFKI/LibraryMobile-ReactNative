@@ -20,11 +20,32 @@ const LoginStyle = StyleSheet.create({
         paddingBottom : 40
     },
     backButton : {
+        position : 'absolute',
+        height : 90,
+        width : 90,
+        paddingBottom : 10,
+        bottom : -20,
+        left : -20,
+        color : 'white',
+        backgroundColor : '#333333',
         display : 'flex',
         flexDirection : 'row',
-        alignItems : 'flex-start',
-        justifyContent : 'flex-start',
-        paddingBottom : 50
+        alignItems: "center",
+        justifyContent : "center",
+        shadowColor: "#F9F9F9",
+        borderRadius : 45,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.32,
+        shadowRadius: 10.00,
+        
+        elevation: 2,
+    },
+    touch : {
+        display : 'flex',
+        flexDirection : 'row',
     },
         header : {
             display : "flex",

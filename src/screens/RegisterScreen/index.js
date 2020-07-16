@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Image,TextInput,TouchableHighlight } from 'react-native';
 import { theme, withGalio,Text,Input,GalioProvider, Button} from 'galio-framework'
 import { View,Icon } from 'native-base';
-import LoginStyle from './Style'
+import LoginStyle from './Style';
+import IonIcon from 'react-native-vector-icons/FontAwesome'
 
 class RegisterScreen extends Component {
     constructor(props){
@@ -12,7 +13,7 @@ class RegisterScreen extends Component {
         }
     }
     componentDidMount(){
-        console.log('res')
+        console.log(this.props.navigation.goBack)
     }
     render() {
         const customTheme = {
@@ -26,9 +27,6 @@ class RegisterScreen extends Component {
             <GalioProvider theme={customTheme}>
             <View style={LoginStyle.content}>
                 <View style={LoginStyle.header}>
-                    <Text style={LoginStyle.backButton}>
-                       Back
-                    </Text>
                 </View>
                 <View style={LoginStyle.header}>
                         <Text h6 style={LoginStyle.wl}>Lets Start Your Jurney !!</Text>
@@ -58,10 +56,20 @@ class RegisterScreen extends Component {
                     </TouchableHighlight>
                     </View>
                     <View style={LoginStyle.registerTxt}>
-                        <Text muted>Have an Account ?  </Text>
-                        <Text>Login</Text>
+                        {/* <Text muted>Have an Account ?  </Text>
+                        <Text>Login</Text> */}
                     </View>
                 </View>
+                <TouchableHighlight
+                 activeOpacity={0.6}
+                 underlayColor="#DDDDDD"
+                 onPress={() => this.props.navigation.goBack()}
+                 style={LoginStyle.backButton}
+                >
+                <View style={LoginStyle.touch} >
+                      <IonIcon name="arrow-left" size={15} color={'white'}/><Text style={{color: 'white',marginLeft : 5}}>Back</Text>
+                </View>
+                </TouchableHighlight>
             </View>
             </GalioProvider>
             </>
