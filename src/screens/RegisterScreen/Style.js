@@ -19,6 +19,13 @@ const LoginStyle = StyleSheet.create({
     bgImage : {
         paddingBottom : 40
     },
+    backButton : {
+        display : 'flex',
+        flexDirection : 'row',
+        alignItems : 'flex-start',
+        justifyContent : 'flex-start',
+        paddingBottom : 50
+    },
         header : {
             display : "flex",
             flexDirection : "column",
@@ -27,7 +34,8 @@ const LoginStyle = StyleSheet.create({
             paddingBottom : 30
         },
             wl : {
-                paddingBottom : 10
+                paddingBottom : 5,
+                fontFamily : 'Poppins-Medium'
             },
         form : {
             padding : 5,
@@ -55,7 +63,8 @@ const LoginStyle = StyleSheet.create({
                 display : 'flex',
                 flexDirection : 'column',
                 justifyContent : 'center',
-                alignItems : "center"
+                alignItems : "center",
+                paddingTop : 20
             }
             ,
     boxShadow : 

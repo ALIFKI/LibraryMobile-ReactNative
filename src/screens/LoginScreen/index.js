@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Image,TextInput } from 'react-native';
-import { theme, withGalio,Text,Input,Icon,GalioProvider, Button} from 'galio-framework'
-import { View } from 'native-base';
+import { theme, withGalio,Text,Input,GalioProvider, Button} from 'galio-framework'
+import { View,Icon } from 'native-base';
 import LoginStyle from './Style'
 import image from '../../images/loginBg.png'
 

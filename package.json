@@ -10,8 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.11.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/toolbar-android": "0.1.0-rc.2",
+    "@react-navigation/bottom-tabs": "^5.7.1",
     "@react-navigation/native": "^5.7.0",
     "@react-navigation/stack": "^5.7.0",
     "galio-framework": "^0.7.1",
@@ -21,7 +23,11 @@
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.1.1",
-    "react-native-screens": "^2.9.0"
+    "react-native-screens": "^2.9.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-promise-middleware": "^6.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

@@ -27,7 +27,8 @@ const LoginStyle = StyleSheet.create({
             paddingBottom : 30
         },
             wl : {
-                paddingBottom : 10
+                paddingBottom : 3,
+                fontFamily : 'Poppins-Medium'
             },
         form : {
             padding : 5,
