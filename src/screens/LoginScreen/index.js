@@ -4,6 +4,7 @@ import { theme, withGalio,Text,Input,GalioProvider, Button} from 'galio-framewor
 import { View,Icon } from 'native-base';
 import LoginStyle from './Style'
 import image from '../../images/loginBg.png'
+// import { API_URL } from '@env'
 
 class LoginScreen extends Component {
     constructor(props){

@@ -9,6 +9,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Routes from './src/routes';
+import { API_URL } from '@env'
 
 
 const App: () => React$Node = () => {

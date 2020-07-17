@@ -13,25 +13,25 @@ export default class BooksWrapper extends Component {
                     title    : "something"
                   },
                   {
-                    imageUrl: "http://via.placeholder.com/160x160",
-                    title: "something two"
+                    imageUrl : "https://images.unsplash.com/photo-1497802176320-541c8e8de98d?&w=1600&h=900&fit=crop&crop=entropy&q=300",
+                    title    : "something"
                   },
                   {
-                    imageUrl: "http://via.placeholder.com/160x160",
-                    title: "something three"
+                    imageUrl : "https://images.unsplash.com/photo-1497802176320-541c8e8de98d?&w=1600&h=900&fit=crop&crop=entropy&q=300",
+                    title    : "something"
                   },
                   {
-                    imageUrl: "http://via.placeholder.com/160x160",
-                    title: "something four"
+                    imageUrl : "https://images.unsplash.com/photo-1497802176320-541c8e8de98d?&w=1600&h=900&fit=crop&crop=entropy&q=300",
+                    title    : "something"
                   },
                   {
-                    imageUrl: "http://via.placeholder.com/160x160",
-                    title: "something five"
+                    imageUrl : "https://images.unsplash.com/photo-1497802176320-541c8e8de98d?&w=1600&h=900&fit=crop&crop=entropy&q=300",
+                    title    : "something"
                   },
                   {
-                    imageUrl: "http://via.placeholder.com/160x160",
-                    title: "something six"
-                  }
+                    imageUrl : "https://images.unsplash.com/photo-1497802176320-541c8e8de98d?&w=1600&h=900&fit=crop&crop=entropy&q=300",
+                    title    : "something"
+                  },
             ]
         }
     }
@@ -54,7 +54,7 @@ export default class BooksWrapper extends Component {
                     </Card>
                   );
                 }}
-                keyExtractor={(item, index) => index}
+                keyExtractor={(item, index) => index.toString()}
                 />
             </View>
         )

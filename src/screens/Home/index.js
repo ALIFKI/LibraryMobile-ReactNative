@@ -6,6 +6,7 @@ import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Righ
 import profile from '../../images/felin.jpg';
 import Awsome from 'react-native-vector-icons/FontAwesome'
 import HomeWrapper from '../../components/HomeWrapper'
+import GenreWrapper from '../../components/GenreWrapper';
 
 class HomeScreen extends Component {
     render() {
@@ -42,8 +43,9 @@ class HomeScreen extends Component {
                         borderless
                         />
                 </View>
-                <HomeWrapper/>
-                <HomeWrapper/>
+                    <HomeWrapper/>
+                    <GenreWrapper/>
+                    <HomeWrapper/>
             </ScrollView>
         )
     }
