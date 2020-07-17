@@ -7,6 +7,7 @@ import profile from '../../images/felin.jpg';
 import Awsome from 'react-native-vector-icons/FontAwesome'
 import HomeWrapper from '../../components/HomeWrapper'
 import GenreWrapper from '../../components/GenreWrapper';
+import { connect } from 'react-redux';
 
 class HomeScreen extends Component {
     render() {
@@ -18,7 +19,7 @@ class HomeScreen extends Component {
                         <Image source={profile} style={HomeStyle.profileImage}/>
                         </View>
                         <View>
-                            <Text style={HomeStyle.txtStyle}>
+                            <Text style={HomeStyle.txtStyle} onPress={()=>{console.log(this.props.auth)}}>
                                 Hello Alifki
                             </Text>
                         </View>
@@ -43,12 +44,14 @@ class HomeScreen extends Component {
                         borderless
                         />
                 </View>
-                    <HomeWrapper/>
+                    <HomeWrapper title={'Top Available for you'}/>
                     <GenreWrapper/>
-                    <HomeWrapper/>
+                    <HomeWrapper title={'More Book'}/>
             </ScrollView>
         )
     }
 }
-
-export default HomeScreen
+const mapStateToProps = state =>({
+    auth : state.auth
+})
+export default connect(mapStateToProps)(HomeScreen)

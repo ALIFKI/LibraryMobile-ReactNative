@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import GenreStyle from './Style';
 import BooksWrapper from '../BooksWrapper';
+import GenreFlat from '../GenreFlat'
 
 export default class GenreWrapper extends Component {
     constructor(props){
@@ -15,6 +16,7 @@ export default class GenreWrapper extends Component {
                 <Text style={GenreStyle.TxtMore}>See All</Text>
             </View>
             {/* <BooksWrapper/> */}
+            <GenreFlat/>
             </View>
         )
     }

@@ -45,7 +45,7 @@ const GenreStyle = StyleSheet.create({
         fontFamily : 'Poppins-Regular'
     },
     bookWrapper : {
-        paddingTop : 16
+        paddingTop : 0
     },
         titleTxt : {
             color : 'white',

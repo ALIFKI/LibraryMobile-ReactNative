@@ -3,7 +3,6 @@ import {createStore,applyMiddleware} from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import rootReducer from './reducers'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const persistConfig = {

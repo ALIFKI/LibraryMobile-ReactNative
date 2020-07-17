@@ -2,7 +2,7 @@ const initialState = {
     isLoading : false,
     isError : false,
     errorMsg : '' ,
-    successMsg : '',
+    successMsg : 'Helloo',
     auth : {},
     isLogin : false,
 }

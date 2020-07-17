@@ -9,14 +9,20 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Routes from './src/routes';
-import { API_URL } from '@env'
+import { Provider } from 'react-redux';
+import store from './src/redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
+
+const {storeCon,persistor} = store()
 
 
 const App: () => React$Node = () => {
   return (
-    <>
-    <Routes/>
-    </>
+    <Provider store={storeCon}>
+      <PersistGate persistor={persistor}>
+        <Routes/>
+      </PersistGate>
+    </Provider>
   );
 };
 

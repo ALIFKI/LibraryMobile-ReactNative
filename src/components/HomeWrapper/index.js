@@ -11,7 +11,7 @@ export default class HomeWrapper extends Component {
         return (
             <View style={HomeStyle.bookWrapper}>
             <View style={HomeStyle.titleTxt}>
-                <Text style={HomeStyle.TxtMain}>See All Relevant Books</Text>
+                <Text style={HomeStyle.TxtMain}> {this.props.title} </Text>
                 <Text style={HomeStyle.TxtMore}>See All</Text>
             </View>
             <BooksWrapper/>
