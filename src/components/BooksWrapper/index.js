@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Text, View,FlatList } from 'react-native';
+import { Text, View,FlatList,TouchableOpacity } from 'react-native';
 import {Card} from 'galio-framework'
-import CardStyle from './Style'
+import CardStyle from './Style';
+import * as RootNav from '../../routes/RootNavigation'
 
 export default class BooksWrapper extends Component {
     constructor(props){
@@ -36,15 +37,18 @@ export default class BooksWrapper extends Component {
                 data={this.state.data}
                 renderItem={({ item: rowData }) => {
                   return (
-                    <Card
-                      title={null}
-                      image={rowData.imageUrl}
-                      style={{width : 120,marginLeft : 15}}
-                      borderless
-                      imageStyle={{height : 200}}
-                      shadow={false}
-                    >
-                    </Card>
+                    <TouchableOpacity
+                      onPress={()=>{RootNav.navigate('detail')}}
+                      >
+                      <Card
+                        image={rowData.imageUrl}
+                        style={{width : 100,marginLeft : 15}}
+                        borderless
+                        imageStyle={{height : 200}}
+                        shadow={false}
+                      >
+                      </Card>
+                    </TouchableOpacity>
                   );
                 }}
                 keyExtractor={(item, index) => index.toString()}

@@ -3,6 +3,7 @@ import { Text, View } from 'react-native'
 import HomeStyle from './Style';
 import BooksWrapper from '../BooksWrapper';
 
+
 export default class HomeWrapper extends Component {
     constructor(props){
         super(props)
