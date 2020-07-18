@@ -1,20 +1,46 @@
 import React, { Component } from 'react'
-import { Image,TextInput } from 'react-native';
+import { Image,TextInput, Alert,TouchableOpacity } from 'react-native';
 import { theme, withGalio,Text,Input,GalioProvider, Button} from 'galio-framework'
 import { View,Icon } from 'native-base';
 import LoginStyle from './Style'
 import image from '../../images/loginBg.png'
-// import { API_URL } from '@env'
+import { connect } from 'react-redux';
+import {login} from '../../redux/actions/auth'
+
 
 class LoginScreen extends Component {
     constructor(props){
         super(props)
         this.state = {
-            focus : false
+            focus : false,
+            username : '',
+            password  : '',
+            isLoading : false
         }
     }
     onRegister = ()=>{
         this.props.navigation.navigate('register')
+    }
+    handleLogin = ()=>{
+        // console.log(this.props)
+        var data = {
+            username : this.state.username,
+            password : this.state.password
+        }
+        this.props.login(data).then((res)=>{
+            console.log(res.value.data.data)
+            this.props.navigation.navigate('dashboard')
+        }).catch((err)=>{
+            console.log(err.response)
+                    Alert.alert(
+                    'Oopss!!',
+                    err.response.data.msg,
+                    [
+                        { text: 'OK', onPress: () => console.log('OK Pressed') }
+                    ],
+                    { cancelable: false }
+                )
+                })
     }
     render() {
         const customTheme = {
@@ -38,16 +64,20 @@ class LoginScreen extends Component {
                 </View>
                 <View style={LoginStyle.form}>
                     <View style={LoginStyle.formInput}>
-                        <Input placeholder="Email" rounded borderless={true} style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} color={'black'}/>
+                        <Input placeholder="Email" rounded borderless={true} style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} color={'black'} onChangeText={text=>this.setState({username : text})}/>
                     </View>
                     <View style={LoginStyle.formInput}>
-                        <Input placeholder="Password" rounded borderless={true} password style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'}/>
+                        <Input placeholder="Password" rounded borderless={true} password style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} onChangeText={text=>this.setState({password : text})}/>
                     </View>
                     <View style={LoginStyle.formInput}>
                         <Text style={LoginStyle.textForgot}>Forgot Password?</Text>
                     </View>
                     <View  style={LoginStyle.formInput,LoginStyle.submitWrapper} >
-                        <Button color={'black'} shadowless round>Log in</Button>
+                        <TouchableOpacity
+                        
+                        >
+                        <Button color={'black'} shadowless round onPress={this.handleLogin}>Log in</Button>
+                        </TouchableOpacity>
                     </View>
                     <View style={LoginStyle.registerTxt}>
                         <Text muted>Don't Have account?  </Text><Text onPress={this.onRegister}>Resgister</Text>
@@ -59,4 +89,9 @@ class LoginScreen extends Component {
         )
     }
 }
-export default LoginScreen
+const mapStateToProps = state =>({
+    auth : state.auth
+})
+const mapDispatchToProps = {login}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginScreen)

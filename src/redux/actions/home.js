@@ -35,7 +35,7 @@ export const getData = (token) =>{
         payload :         
         axios({
             method : 'GET',
-            url : 'http://localhost:3000/api/books?search=&page=1&limit=100&sort=0&by=title&order=title',
+            url : 'http://192.168.43.124:3000/api/books?search=&page=1&limit=100&sort=0&by=title&order=title',
             headers: {
                 Authorization : token,
             }

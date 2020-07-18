@@ -16,13 +16,13 @@ class DetailsScreen extends Component {
 
                             </View>
                             <View style={DetailStyle.BookDetails}>
-                                <Text style={DetailStyle.title}>Harry Potter Chamber OF secrets</Text>
-                                <Text style={DetailStyle.author}>By JK Rowling</Text>
-                                <Text style={DetailStyle.time}>6 Hours Ago</Text>
-                                <View style={DetailStyle.action}>
+                                    <Text style={DetailStyle.title}>Harry Potter Chamber OF secrets</Text>
+                                    <Text style={DetailStyle.author}>By JK Rowling</Text>
+                                    <Text style={DetailStyle.time}>6 Hours Ago</Text>
+                                    <View style={DetailStyle.action}>
                                 <Button color={'#4660CE'} shadowless round>
                                     <Text style={{color : 'white'}}>Borrow</Text>
-                                    </Button>
+                                </Button>
                                 </View>
                             </View>
                         </View>

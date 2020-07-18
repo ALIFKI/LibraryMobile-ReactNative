@@ -1,12 +1,12 @@
 import axios from 'axios'
-
+import { API_URL } from '@env'
 export const login = data => {
     return {
         type : 'LOGIN',
         payload :
         axios({
             method: 'POST',
-            url : `${process.env.REACT_APP_URL_API}api/users/login`,
+            url : `http://192.168.43.124:3000/api/users/login`,
             data : {
                 email : data.username,
                 password : data.password

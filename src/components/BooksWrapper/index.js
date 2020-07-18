@@ -3,8 +3,9 @@ import { Text, View,FlatList,TouchableOpacity } from 'react-native';
 import {Card} from 'galio-framework'
 import CardStyle from './Style';
 import * as RootNav from '../../routes/RootNavigation'
+import { connect } from 'react-redux';
 
-export default class BooksWrapper extends Component {
+class BooksWrapper extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -38,7 +39,12 @@ export default class BooksWrapper extends Component {
                 renderItem={({ item: rowData }) => {
                   return (
                     <TouchableOpacity
-                      onPress={()=>{RootNav.navigate('detail')}}
+                      onPress={
+                        // ()=>{RootNav.navigate('detail')}
+                      ()=>{
+                        console.log(this.props.home)
+                      }
+                      }
                       >
                       <Card
                         image={rowData.imageUrl}
@@ -54,6 +60,39 @@ export default class BooksWrapper extends Component {
                 keyExtractor={(item, index) => index.toString()}
                 />
             </View>
+
+            // <View style={CardStyle.wrapper}>
+            //     <FlatList 
+            //     style={{marginBottom : 0}}
+            //     horizontal
+            //     data={this.props.home.book}
+            //     renderItem={({ item: rowData }) => {
+            //       return (
+            //         <TouchableOpacity
+            //           onPress={
+            //             ()=>{RootNav.navigate('detail')}
+            //           }
+            //           >
+            //           <Card
+            //             image={`http://192.168.43.124:3000/uploads/${rowData.image}`}
+            //             style={{width : 100,marginLeft : 15}}
+            //             borderless
+            //             imageStyle={{height : 200}}
+            //             shadow={false}
+            //           >
+            //           </Card>
+            //         </TouchableOpacity>
+            //       );
+            //     }}
+            //     keyExtractor={(item, index) => index.toString()}
+            //     />
+            // </View>
         )
     }
 }
+const mapStateToProps = state =>({
+  user : state.auth,
+  home : state.home
+})
+
+export default connect(mapStateToProps)(BooksWrapper)

@@ -9,7 +9,7 @@ import history from './history';
 
 export default combineReducers({
     auth,
-    // home,
+    home,
     // admin,
     // book,
     // genre,

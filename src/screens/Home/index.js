@@ -4,12 +4,26 @@ import HomeStyle from './Style';
 import {Input} from 'galio-framework'
 import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon} from 'native-base';
 import profile from '../../images/felin.jpg';
+import {getData} from '../../redux/actions/home'
 import Awsome from 'react-native-vector-icons/FontAwesome'
 import HomeWrapper from '../../components/HomeWrapper'
 import GenreWrapper from '../../components/GenreWrapper';
 import { connect } from 'react-redux';
 
 class HomeScreen extends Component {
+    constructor(props){
+        super(props)
+    }
+    componentDidMount(){
+        this.handleGetData()
+    }
+    handleGetData = ()=>{
+        this.props.getData(this.props.user.auth.token).then((res)=>{
+            // console.log(res)
+        }).catch((err)=>{
+            // console.log(err)
+        })
+    }
     render() {
         return (
             <ScrollView style={HomeStyle.content} >
@@ -19,8 +33,8 @@ class HomeScreen extends Component {
                         <Image source={profile} style={HomeStyle.profileImage}/>
                         </View>
                         <View>
-                            <Text style={HomeStyle.txtStyle} onPress={()=>{console.log(this.props.auth)}}>
-                                Hello Alifki
+                            <Text style={HomeStyle.txtStyle} onPress={this.handleGetData}>
+                                Hello {this.props.user.auth.name}
                             </Text>
                         </View>
                     </View>
@@ -52,6 +66,8 @@ class HomeScreen extends Component {
     }
 }
 const mapStateToProps = state =>({
-    auth : state.auth
+    user : state.auth
 })
-export default connect(mapStateToProps)(HomeScreen)
+const mapDispatchToProps = {getData}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HomeScreen)

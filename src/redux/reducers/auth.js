@@ -16,12 +16,12 @@ const auth = (state = initialState,action) =>{
             isError : false
         }
         case "LOGIN_REJECTED": 
-        console.log(action.payload.data)
+        // console.log(action.payload.data)
         return { 
             ...state,
             isLoading : false,
             isError : true,
-            errorMsg : 'User not found'
+            errorMsg : 'Error'
         }
         case "LOGIN_FULFILLED": 
         return { 
