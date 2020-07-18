@@ -40,10 +40,7 @@ class BooksWrapper extends Component {
                   return (
                     <TouchableOpacity
                       onPress={
-                        // ()=>{RootNav.navigate('detail')}
-                      ()=>{
-                        console.log(this.props.home)
-                      }
+                        ()=>{RootNav.navigate('detail')}
                       }
                       >
                       <Card
