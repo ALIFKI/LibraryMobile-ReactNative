@@ -1,20 +1,78 @@
 import React, { Component } from 'react'
-import { Image,TextInput,TouchableHighlight } from 'react-native';
+import { Image,TextInput,TouchableHighlight, Alert } from 'react-native';
 import { theme, withGalio,Text,Input,GalioProvider, Button} from 'galio-framework'
 import { View,Icon } from 'native-base';
 import LoginStyle from './Style';
 import IonIcon from 'react-native-vector-icons/FontAwesome'
-
+import { register } from '../../redux/actions/auth'
+import { connect } from 'react-redux';
 class RegisterScreen extends Component {
     constructor(props){
         super(props)
         this.state = {
-            focus : false
+            focus : false,
+            username : '',
+            email : '',
+            password : '',
+            validate : false
         }
     }
-    componentDidMount(){
-        console.log(this.props.navigation.goBack)
+    handelRegister = ()=>{
+        if(this.state.validate === true){
+            var data = {
+                name : this.state.username,
+                email : this.state.email,
+                password : this.state.password
+            }
+            this.props.register(data).then((res)=>{
+                Alert.alert(
+                    'Success !!',
+                    'Lets Login.. ',
+                    [
+                        { text: 'OK', onPress: () => this.props.navigation.navigate('login') }
+                    ],
+                    { cancelable: false }
+                )
+            }).catch((err)=>{
+                var msg = err.response.data.msg
+                msg == `Duplicate entry '${this.state.email}' for key 'users_email_unique'` ? msg="Email Already Used!" : msg=msg
+                Alert.alert(
+                    'Oopss!!',
+                    msg,
+                    [
+                        { text: 'OK', onPress: () => console.log('OK Pressed') }
+                    ],
+                    { cancelable: false }
+                )
+            })
+        }
+        else{
+            Alert.alert(
+                'Oopss!!',
+                'Email Invalid',
+                [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') }
+                ],
+                { cancelable: false }
+            )
+        }
+
     }
+    validate = (text) => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (reg.test(text) === false) {
+          this.setState({ 
+              email : text,
+              validate : false ,
+            })
+        }
+        else {
+          this.setState({ 
+              email : text,
+              validate : true
+         })
+        }
+      }
     render() {
         const customTheme = {
             SIZES: { BASE: 18, },
@@ -36,13 +94,13 @@ class RegisterScreen extends Component {
                     </View>
                 <View style={LoginStyle.form}>
                     <View style={LoginStyle.formInput}>
-                        <Input placeholder="Email" rounded borderless={true} style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} color={'black'}/>
+                        <Input placeholder="Email" rounded borderless={true} style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} color={'black'} onChangeText={text=>this.validate(text)}/>
                     </View>
                     <View style={LoginStyle.formInput}>
-                        <Input placeholder="Username/Fullname" rounded borderless={true} style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'}/>
+                        <Input placeholder="Username/Fullname" rounded borderless={true} style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} onChangeText={text=>this.setState({username : text})}/>
                     </View>
                     <View style={LoginStyle.formInput}>
-                        <Input placeholder="Password" rounded borderless={true} password style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'}/>
+                        <Input placeholder="Password" rounded borderless={true} password style={LoginStyle.input,LoginStyle.boxShadow} placeholderTextColor={'#D4D7DE'} onChangeText={text=>this.setState({password : text})}/>
                     </View>
                     <View style={LoginStyle.formInput}>
                         
@@ -52,7 +110,7 @@ class RegisterScreen extends Component {
                     activeOpacity={0.06}
                     underlayColor="#DDDDDD"
                     >
-                        <Button color={'black'} shadowless round onPress={() => this.props.navigation.navigate('dashboard')}>Register</Button>
+                        <Button color={'black'} shadowless round onPress={this.handelRegister}>Register</Button>
                     </TouchableHighlight>
                     </View>
                     <View style={LoginStyle.registerTxt}>
@@ -76,4 +134,9 @@ class RegisterScreen extends Component {
         )
     }
 }
-export default RegisterScreen
+
+const mapStateToProps = state =>({
+    auth : state.auth
+})
+const mapDispatchToProps = {register}
+export default connect(mapStateToProps,mapDispatchToProps)(RegisterScreen)

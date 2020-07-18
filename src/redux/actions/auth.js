@@ -27,7 +27,7 @@ export const register = data =>{
         payload : 
         axios({
             method: 'POST',
-            url : `${process.env.REACT_APP_URL_API}api/users/registers`,
+            url : `http://192.168.43.124:3000/api/users/registers`,
             data : {
                 name : data.name,
                 email : data.email,

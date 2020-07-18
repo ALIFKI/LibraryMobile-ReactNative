@@ -13,7 +13,7 @@ export default class BookCard extends Component {
                     <View style={Style.details}>
                         <Text style={Style.bookTitle}> {this.props.data.title} </Text>
                         <Text style={Style.author}>by {this.props.data.author} </Text>
-                        <Text style={Style.time}> {this.props.data.time} </Text>
+                        <Text style={Style.time}> {this.props.data.time}</Text>
                     </View>
                     <View style={Style.action}>
                         <TouchableOpacity 
