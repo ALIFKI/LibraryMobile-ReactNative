@@ -6,7 +6,8 @@ import DetailStyle from './Style';
 import IonIcon from 'react-native-vector-icons/FontAwesome'
 import {getBookbyId} from '../../redux/actions/book'
 import { connect } from 'react-redux';
-import {API_URL} from '@env'
+import {API_URL} from '@env';
+import HTML from 'react-native-render-html'
 
 class DetailsScreen extends Component {
     constructor(props){
@@ -29,6 +30,7 @@ class DetailsScreen extends Component {
     }
     render() {
         return (
+            <ScrollView>
             <View>
                 {
                     this.props.book.bookFilled ? (
@@ -44,20 +46,26 @@ class DetailsScreen extends Component {
                                         <Text style={DetailStyle.author}>By {this.props.book.book.author} </Text>
                                         <Text style={DetailStyle.time}>6 Hours Ago</Text>
                                         <View style={DetailStyle.action}>
-                                    <Button color={'#4660CE'} shadowless round onPress={()=>{console.log('pressed')}}>
-                                        <Text style={{color : 'white'}}>Borrow</Text>
-                                    </Button>
+                                            {
+                                                this.props.book.book.status == 'Available' ? 
+                                                (
+                                                    <Button color={'#4660CE'} shadowless round onPress={()=>{console.log(this.props.book.book.status)}}>
+                                                        <Text style={{color : 'white'}}>Borrow</Text>
+                                                    </Button>
+                                                ): 
+                                                (
+                                                    <Button color={'#c31432'} shadowless round onPress={()=>{console.log(this.props.book.book.status)}}>
+                                                    <Text style={{color : 'white'}}>Unavailable</Text>
+                                                    </Button>
+                                                )
+                                            }
                                     </View>
                                 </View>
                             </View>
                             <View style={DetailStyle.desc}>
                                 <Text style={DetailStyle.synopsis}>Synopsis</Text>
                             {/* <Text style={DetailStyle.synopsisTxt}>{this.props.book.book.description}</Text> */}
-                                        <WebView
-                                            originWhitelist={['*']}
-                                            source={{ html: '<h3>Helo</h3>' }}
-                                            style={{ marginTop: 20,color : 'white',backgroundColor : 'black' }}
-                                        />
+                                <HTML html={this.props.book.book.description} imagesMaxWidth={Dimensions.get('window').width} />
                             </View>
                         </View>
                     <TouchableHighlight
@@ -76,6 +84,7 @@ class DetailsScreen extends Component {
                     )
                 }
             </View>
+            </ScrollView>
         )
     }
 }

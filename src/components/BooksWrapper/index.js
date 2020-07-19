@@ -72,7 +72,7 @@ class BooksWrapper extends Component {
                       >
                       <Card
                         image={`http://192.168.43.124:3000/uploads/${rowData.image}`}
-                        style={{width : 100,marginLeft : 15}}
+                        style={{width : 120,marginLeft : 15}}
                         borderless
                         imageStyle={{height : 200}}
                         shadow={false}
