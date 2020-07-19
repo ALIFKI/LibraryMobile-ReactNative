@@ -32,23 +32,12 @@ const DetailStyle = StyleSheet.create({
         flexDirection : 'row'
     },
         BookImage : {
-            backgroundColor : 'white',
             height : 180,
             width : 130,
             borderRadius : 10,
             marginRight : 20,
-            shadowColor: "#F9F9F9",
-            shadowOffset: {
-                width: 0,
-                height: 2,
-            },
-            shadowOpacity: 0.32,
-            shadowRadius: 10.00,
-            
-            elevation: 2,
         },
         title : {
-
             color : 'white',
             fontFamily : 'Poppins-Bold'
         },
@@ -131,6 +120,17 @@ const DetailStyle = StyleSheet.create({
             display : 'flex',
             flexDirection : 'row',
         },
+        boxShadow : {
+            shadowColor: "#F9F9F9",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.32,
+            shadowRadius: 10.00,
+            
+            elevation: 2,
+        }
 })
 
 module.exports = DetailStyle

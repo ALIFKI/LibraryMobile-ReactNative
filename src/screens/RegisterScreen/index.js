@@ -6,6 +6,7 @@ import LoginStyle from './Style';
 import IonIcon from 'react-native-vector-icons/FontAwesome'
 import { register } from '../../redux/actions/auth'
 import { connect } from 'react-redux';
+
 class RegisterScreen extends Component {
     constructor(props){
         super(props)
@@ -76,9 +77,7 @@ class RegisterScreen extends Component {
     render() {
         const customTheme = {
             SIZES: { BASE: 18, },
-            // this will overwrite the Galio SIZES BASE value 16
             COLORS: { PRIMARY: '#3B5998', } 
-            // this will overwrite the Galio COLORS PRIMARY color #B23AFC
           };
         return (
             <>

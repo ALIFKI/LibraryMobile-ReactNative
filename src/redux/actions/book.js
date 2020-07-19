@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {API_URL} from '@env'
 
 export const getBookbyId = (data)=>{
     return {
@@ -6,7 +7,7 @@ export const getBookbyId = (data)=>{
         payload : 
         axios({
             method : 'GET',
-            url : `${process.env.REACT_APP_URL_API}api/books/${data.id}`,
+            url : `${API_URL}api/books/${data.id}`,
             headers : {
                 Authorization : data.token
             }

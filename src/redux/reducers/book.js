@@ -1,6 +1,7 @@
 const initialState = {
     isLoading : false,
     isError : false,
+    bookFilled : false,
     errorMsg : '' ,
     successMsg : '',
     carousel : [],
@@ -16,16 +17,17 @@ const book = (state = initialState,action)=>{
             isLoading : true,
         }
         case "GET_BOOK_ID_REJECTED": 
-        console.log(action.payload)
+        // console.log(action.payload)
         return {
             ...state,
             isLoading : false
         }
         case "GET_BOOK_ID_FULFILLED":
-            console.log(action.payload)
+            // console.log(action.payload)
         return {
             ...state,
-            book : action.payload.data.data
+            book : action.payload.data.data,
+            bookFilled : true
         }
         case "BORROW_PENDING": 
         return {

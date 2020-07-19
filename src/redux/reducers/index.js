@@ -11,7 +11,7 @@ export default combineReducers({
     auth,
     home,
     // admin,
-    // book,
+    book,
     // genre,
     // author,
     // history

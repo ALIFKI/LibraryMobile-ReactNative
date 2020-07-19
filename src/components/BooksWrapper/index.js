@@ -31,38 +31,11 @@ class BooksWrapper extends Component {
     }
     render() {
         return (
-            <View style={CardStyle.wrapper}>
-                <FlatList 
-                style={{marginBottom : 0}}
-                horizontal
-                data={this.state.data}
-                renderItem={({ item: rowData }) => {
-                  return (
-                    <TouchableOpacity
-                      onPress={
-                        ()=>{RootNav.navigate('detail')}
-                      }
-                      >
-                      <Card
-                        image={rowData.imageUrl}
-                        style={{width : 100,marginLeft : 15}}
-                        borderless
-                        imageStyle={{height : 200}}
-                        shadow={false}
-                      >
-                      </Card>
-                    </TouchableOpacity>
-                  );
-                }}
-                keyExtractor={(item, index) => index.toString()}
-                />
-            </View>
-
             // <View style={CardStyle.wrapper}>
             //     <FlatList 
             //     style={{marginBottom : 0}}
             //     horizontal
-            //     data={this.props.home.book}
+            //     data={this.state.data}
             //     renderItem={({ item: rowData }) => {
             //       return (
             //         <TouchableOpacity
@@ -71,7 +44,7 @@ class BooksWrapper extends Component {
             //           }
             //           >
             //           <Card
-            //             image={`http://192.168.43.124:3000/uploads/${rowData.image}`}
+            //             image={rowData.imageUrl}
             //             style={{width : 100,marginLeft : 15}}
             //             borderless
             //             imageStyle={{height : 200}}
@@ -84,6 +57,33 @@ class BooksWrapper extends Component {
             //     keyExtractor={(item, index) => index.toString()}
             //     />
             // </View>
+
+            <View style={CardStyle.wrapper}>
+                <FlatList 
+                style={{marginBottom : 0}}
+                horizontal
+                data={this.props.home.book}
+                renderItem={({ item: rowData }) => {
+                  return (
+                    <TouchableOpacity
+                      onPress={
+                        ()=>{RootNav.navigate('detail',{itemId : rowData.id})}
+                      }
+                      >
+                      <Card
+                        image={`http://192.168.43.124:3000/uploads/${rowData.image}`}
+                        style={{width : 100,marginLeft : 15}}
+                        borderless
+                        imageStyle={{height : 200}}
+                        shadow={false}
+                      >
+                      </Card>
+                    </TouchableOpacity>
+                  );
+                }}
+                keyExtractor={(item, index) => index.toString()}
+                />
+            </View>
         )
     }
 }
