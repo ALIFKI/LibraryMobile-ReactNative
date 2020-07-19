@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {View,ScrollView, Dimensions,TouchableHighlight,Image,WebView } from 'react-native'
+import {View,ScrollView, Dimensions,TouchableHighlight,Image } from 'react-native'
+import {WebView} from 'react-native-webview' 
 import {Text,Button} from 'galio-framework'
 import DetailStyle from './Style';
 import IonIcon from 'react-native-vector-icons/FontAwesome'
@@ -51,13 +52,12 @@ class DetailsScreen extends Component {
                             </View>
                             <View style={DetailStyle.desc}>
                                 <Text style={DetailStyle.synopsis}>Synopsis</Text>
-                            <Text style={DetailStyle.synopsisTxt}>{this.props.book.book.description}</Text>
-                            {/* <WebView
-                                style={styles.container}
-                                javaScriptEnabled={true}
-                                domStorageEnabled={true}
-                                source={{ html: this.props.book.book.description  }}
-                                /> */}
+                            {/* <Text style={DetailStyle.synopsisTxt}>{this.props.book.book.description}</Text> */}
+                                        <WebView
+                                            originWhitelist={['*']}
+                                            source={{ html: '<h3>Helo</h3>' }}
+                                            style={{ marginTop: 20,color : 'white',backgroundColor : 'black' }}
+                                        />
                             </View>
                         </View>
                     <TouchableHighlight

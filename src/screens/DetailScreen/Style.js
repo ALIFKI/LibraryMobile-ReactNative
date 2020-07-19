@@ -130,7 +130,13 @@ const DetailStyle = StyleSheet.create({
             shadowRadius: 10.00,
             
             elevation: 2,
-        }
+        },
+        web: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#e5e5e5",
+          }
 })
 
 module.exports = DetailStyle
