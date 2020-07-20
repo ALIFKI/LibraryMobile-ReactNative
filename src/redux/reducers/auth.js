@@ -31,12 +31,22 @@ const auth = (state = initialState,action) =>{
             isLogin : true,
             auth : action.payload.data.data[0]
         }
+        // case "LOGOUT_PENDING": 
+        // return { 
+        //     ...state,
+        //     isLoading : true
+        // }
+        // case "LOGOUT_REJECTED": 
+        // return { 
+        //     ...state,
+        //     errorMsg : 'Error' ,
+        //     auth : {},
+        // }
         case "LOGOUT": 
         return { 
             ...state,
             isLoading : false,
-            isError : false,
-            errorMsg : '' ,
+            isLogin : false,
             auth : {}
         }
         case 'REGISTER_PENDING' :
