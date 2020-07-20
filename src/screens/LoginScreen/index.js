@@ -119,7 +119,7 @@ class LoginScreen extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={LoginStyle.registerTxt}>
-                        <Text muted>Don't Have account?  </Text><Text onPress={this.onRegister}>Resgister</Text>
+                        <Text muted>Don't Have account?  </Text><Text onPress={this.onRegister}>Register</Text>
                     </View>
                 </View>
             </View>

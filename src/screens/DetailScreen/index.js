@@ -54,7 +54,7 @@ class DetailsScreen extends Component {
                                                     </Button>
                                                 ): 
                                                 (
-                                                    <Button color={'#c31432'} shadowless round onPress={()=>{console.log(this.props.book.book.status)}}>
+                                                    <Button disabled color={'#c31432'} shadowless round onPress={()=>{console.log(this.props.book.book.status)}}>
                                                     <Text style={{color : 'white'}}>Unavailable</Text>
                                                     </Button>
                                                 )
@@ -68,7 +68,7 @@ class DetailsScreen extends Component {
                                 <HTML html={this.props.book.book.description} imagesMaxWidth={Dimensions.get('window').width} />
                             </View>
                         </View>
-                    <TouchableHighlight
+                        <TouchableHighlight
                             activeOpacity={0.6}
                             underlayColor="#DDDDDD"
                             onPress={() => this.props.navigation.goBack()}
@@ -77,7 +77,7 @@ class DetailsScreen extends Component {
                             <View style={DetailStyle.touch} >
                                 <IonIcon name="arrow-left" size={15} color={'white'}/><Text style={{color: 'white',marginLeft : 5}}>Back</Text>
                             </View>
-                    </TouchableHighlight>
+                        </TouchableHighlight>
                     </View>
                     ) : (
                         <Text>Loading</Text>

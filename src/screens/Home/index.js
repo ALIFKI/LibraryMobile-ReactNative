@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {View,ScrollView,Text,Image} from 'react-native'
 import HomeStyle from './Style';
 import {Input} from 'galio-framework'
-import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon} from 'native-base';
+// import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon} from 'native-base';
+import SearchBar from '../../components/SearchBar'
 import profile from '../../images/felin.jpg';
 import {getData} from '../../redux/actions/home'
 import Awsome from 'react-native-vector-icons/FontAwesome'
@@ -42,22 +43,7 @@ class HomeScreen extends Component {
                         <Awsome name="bell" color={'white'} size={16}/>
                     </View>
                 </View>
-                <View style={HomeStyle.searchBar}>
-                    <Input
-                        placeholder="Search Some Books?"
-                        right
-                        icon="search"
-                        family="fontawesome"
-                        iconSize={14}
-                        iconColor="#5E626F"
-                        placeholderTextColor="#5E626F"
-                        style={{
-                            backgroundColor : '#3D3F54'
-                        }}
-                        onChange={()=>{}}
-                        borderless
-                        />
-                </View>
+                <SearchBar/>
                     <HomeWrapper title={'Top Available for you'}/>
                     <GenreWrapper/>
                     <HomeWrapper title={'More Book'}/>
