@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import {View,ScrollView, Dimensions,TouchableHighlight,Image } from 'react-native'
+import {View,ScrollView, Dimensions,TouchableHighlight,Image,Alert } from 'react-native'
 import {WebView} from 'react-native-webview' 
 import {Text,Button} from 'galio-framework'
 import DetailStyle from './Style';
 import IonIcon from 'react-native-vector-icons/FontAwesome'
-import {getBookbyId} from '../../redux/actions/book'
+import {getBookbyId,borrow} from '../../redux/actions/book'
 import { connect } from 'react-redux';
 import {API_URL} from '@env';
 import HTML from 'react-native-render-html'
@@ -23,6 +23,24 @@ class DetailsScreen extends Component {
         }
         this.props.getBookbyId(data).then((res)=>{
         }).catch((err)=>{
+        })
+    }
+    handleBorrow = ()=>{
+        var data = {
+            id : this.props.route.params.itemId,
+            token : this.props.user.auth.token
+        }
+        this.props.borrow(data).then((res)=>{
+            Alert.alert(
+                'Success!!',
+                res.value.data.msg,
+                [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') }
+                ],
+                { cancelable: false }
+            )
+        }).catch((err)=>{
+            console.log(err)
         })
     }
     componentDidMount(){
@@ -49,7 +67,7 @@ class DetailsScreen extends Component {
                                             {
                                                 this.props.book.book.status == 'Available' ? 
                                                 (
-                                                    <Button color={'#4660CE'} shadowless round onPress={()=>{console.log(this.props.book.book.status)}}>
+                                                    <Button color={'#4660CE'} shadowless round onPress={this.handleBorrow}>
                                                         <Text style={{color : 'white'}}>Borrow</Text>
                                                     </Button>
                                                 ): 
@@ -92,6 +110,6 @@ const mapStateToProps = state =>({
     book  : state.book,
     user : state.auth
 })
-const mapDispatchToProps = {getBookbyId}
+const mapDispatchToProps = {getBookbyId,borrow}
 
 export default connect(mapStateToProps,mapDispatchToProps)(DetailsScreen)

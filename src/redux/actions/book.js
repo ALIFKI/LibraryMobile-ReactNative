@@ -24,7 +24,7 @@ export const borrow = (data)=>{
             headers : {
                 Authorization : data.token
             },
-            url : `${process.env.REACT_APP_URL_API}api/books/borrow/${data.id}`,
+            url : `${API_URL}api/books/borrow/${data.id}`,
             data : {
                 periode_of_time : 2
             }
