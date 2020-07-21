@@ -5,6 +5,7 @@ import {Text,Button} from 'galio-framework'
 import DetailStyle from './Style';
 import IonIcon from 'react-native-vector-icons/FontAwesome'
 import {getBookbyId,borrow} from '../../redux/actions/book'
+import {returnBook} from '../../redux/actions/history'
 import { connect } from 'react-redux';
 import {API_URL} from '@env';
 import HTML from 'react-native-render-html'
@@ -110,6 +111,6 @@ const mapStateToProps = state =>({
     book  : state.book,
     user : state.auth
 })
-const mapDispatchToProps = {getBookbyId,borrow}
+const mapDispatchToProps = {getBookbyId,borrow,returnBook}
 
 export default connect(mapStateToProps,mapDispatchToProps)(DetailsScreen)

@@ -14,5 +14,5 @@ export default combineReducers({
     book,
     // genre,
     // author,
-    // history
+    history
 })

@@ -15,6 +15,12 @@ class UserScreen extends Component {
         this.props.logout()
     }
     render() {
+        const BorrowBook = this.props.historyData.history.filter((data)=>{
+            return data.return_date === null
+        }).length;
+        const returnBook = this.props.historyData.history.filter((data)=>{
+            return data.return_date !== null
+        }).length
         return (
             <View style={Style.content}>
                 <View style={Style.mainContent}>
@@ -27,11 +33,11 @@ class UserScreen extends Component {
                     </View>
                     <View style={Style.statistic}>
                         <View style={Style.dataBar}>
-                            <Text style={Style.dataCount}>80</Text>
+                            <Text style={Style.dataCount}> {BorrowBook} </Text>
                             <Text style={Style.joinAt}>Borrow</Text>
                         </View>
                         <View style={Style.dataBar}>
-                            <Text style={Style.dataCount}>80</Text>
+                            <Text style={Style.dataCount}> {returnBook} </Text>
                             <Text style={Style.joinAt}>Return</Text>
                         </View>
                     </View>
@@ -46,7 +52,8 @@ class UserScreen extends Component {
     }
 }
 const mapStateToProps = state=>({
-    user  : state.auth
+    user  : state.auth,
+    historyData : state.history
 })
 const mapDispatchToProps = {logout}
 export default connect(mapStateToProps,mapDispatchToProps)(UserScreen)
