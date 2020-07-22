@@ -41,21 +41,22 @@ export default class GenreFlat extends Component {
         }
     }
     render() {
+      const image = 'https://img.freepik.com/free-vector/abstract-colorful-flow-shapes-background_23-2148258092.jpg?size=626&ext=jpg'
         return (
             <View style={CardStyle.wrapper}>
                 <FlatList 
                 style={{marginBottom : 0,
                 display : 'flex'}}
                 horizontal
-                data={this.state.data}
+                data={this.props.data}
                 renderItem={({ item: rowData }) => {
                   return (
                       <View style={CardStyle.card}>
-                          <Image source={{uri : rowData.imageUrl}} style={CardStyle.image}/>
+                          <Image source={{uri : image}} style={CardStyle.image}/>
                           <View style={CardStyle.icon}>
-                              <Awsome name={rowData.icon} color={'white'} size={30}/>
+                              <Awsome name={'film'} color={'white'} size={30}/>
                           </View>
-                          <Text style={CardStyle.genreTxt}> {rowData.title} </Text>
+                          <Text style={CardStyle.genreTxt}> {rowData.genre} </Text>
                       </View>
                   );
                 }}

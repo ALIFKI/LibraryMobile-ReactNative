@@ -6,7 +6,8 @@ const initialState = {
     successMsg : '',
     carousel : [],
     book : {},
-    adventure : []
+    adventure : [],
+    search : []
 }
 
 const book = (state = initialState,action)=>{
@@ -48,6 +49,21 @@ const book = (state = initialState,action)=>{
                 ...state.book,
                 status : 'Borrowed'
             }
+        }
+        case "SEARCH_PENDING" : 
+        return {
+            ...state,
+            isLoading : true
+        }
+        case "SEARCH_REJECTED"  : 
+        return {
+            ...state,
+            isLoading : false
+        }
+        case "SEARCH_FUlFILLED" : 
+        return {
+            ...state,
+            search : action.payload.data.data
         }     
         default: return state
     }

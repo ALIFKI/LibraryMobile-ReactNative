@@ -5,14 +5,17 @@ const ScreenHeight = Dimensions.get('screen').height
 const Style = StyleSheet.create({
     content : {
         padding : 16,
-        backgroundColor : '#282A41'
+        backgroundColor : '#282A41',
     },
     mainContent : {
+        marginBottom : 40,
         padding : 10,
         display : 'flex',
         flexDirection : 'row',
         justifyContent : 'space-around',
-        flexWrap : 'wrap'
+        flexWrap : 'wrap',
+        height : ScreenHeight
+        // minWidth : ScreenWidth
     },
     cardBook : {
         marginTop : 20,
@@ -47,8 +50,23 @@ const Style = StyleSheet.create({
             height : ScreenHeight,
             width : ScreenWidth,
             backgroundColor : 'white',
-            borderRadius : 20
-        }
+            borderRadius : 20,
+            padding : 16
+        },
+            searchBtn : {
+                display :'flex',
+                flexDirection : 'row',
+                justifyContent : 'center',
+                alignItems : 'center',
+                height : 60,
+                width : 60,
+                backgroundColor : 'white',
+                position : 'absolute',
+                right : -15,
+                borderRadius : 30,
+                zIndex : 3,
+                top : 15
+            }
 })
 
 module.exports = Style

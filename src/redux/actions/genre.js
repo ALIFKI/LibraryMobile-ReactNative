@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {API_URL} from '@env'
 
 
 export const getGenre =(data)=>{
@@ -7,7 +8,7 @@ export const getGenre =(data)=>{
         payload :       
         axios({
             method : 'GET',
-            url : `${process.env.REACT_APP_URL_API}api/genres?search=&page=1&limit=10&sort=0&by=genre`,
+            url : `${API_URL}api/genres?search=&page=1&limit=10&sort=0&by=genre`,
             headers : {
               Authorization : data.token
           },

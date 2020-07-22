@@ -12,7 +12,7 @@ export default combineReducers({
     home,
     // admin,
     book,
-    // genre,
+    genre,
     // author,
     history
 })
