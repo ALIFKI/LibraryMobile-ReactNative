@@ -99,6 +99,14 @@ const Style = StyleSheet.create({
     },
     picker : {
         color : 'black'
+    },
+    imageForm : {
+        height : 100,
+        width : 100,
+        display : 'flex',
+        flexDirection : 'row',
+        justifyContent : 'center',
+        alignItems : 'center'
     }
 })
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import {API_URL} from '@env'
 
 export const getBook = (token) =>{
     return {
@@ -35,10 +35,11 @@ export const addBooks = (data,token)=>{
         payload : 
         axios({
             method : 'POST',
-            url : `${process.env.REACT_APP_URL_API}api/books`,
+            url : `${API_URL}api/books`,
             data : data,
             headers : {
               'Content-Type' : 'multipart/form-data',
+              'Accept': 'application/json',
               Authorization : token
             }
           })
