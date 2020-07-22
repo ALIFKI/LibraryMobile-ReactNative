@@ -5,7 +5,11 @@ const ScreenHeight = Dimensions.get('screen').height
 const Style = StyleSheet.create({
     content : {
         padding : 16,
-        backgroundColor : '#282A41',
+        // backgroundColor : '#282A41',
+    },
+    view  : {
+        // backgroundColor : '#282A41',
+        // minHeight : ScreenHeight
     },
     mainContent : {
         marginBottom : 40,
@@ -14,7 +18,7 @@ const Style = StyleSheet.create({
         flexDirection : 'row',
         justifyContent : 'space-around',
         flexWrap : 'wrap',
-        height : ScreenHeight
+        minHeight : ScreenHeight/2
         // minWidth : ScreenWidth
     },
     cardBook : {

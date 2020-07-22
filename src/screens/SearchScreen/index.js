@@ -28,6 +28,7 @@ class SearchScreen extends Component {
             result : []
         },this.handleSearch)
     }
+    
     handleSearch = ()=>{
         var data = {
             token : this.props.user.auth.token,
@@ -67,8 +68,13 @@ class SearchScreen extends Component {
         this.setState({page : this.state.page+1},this.handleSearch)
     }
     render() {
+        const isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
+            const paddingToBottom = 0;
+            return layoutMeasurement.height + contentOffset.y >=
+                contentSize.height - paddingToBottom;
+        };
         return (
-            <View>
+            <View style={Style.view}>
                 <TouchableOpacity 
                     style={Style.searchBtn}
                     onPress={this.handeleResetSearch}
@@ -78,9 +84,11 @@ class SearchScreen extends Component {
                     </View>
                 </TouchableOpacity>
             <ScrollView style={Style.content}
-            onMomentumScrollEnd={this.handlePagination}
-            // onScrollEndDrag={()=>{console.log('Drah')}}
-            disableIntervalMomentum={true}
+                onScroll={({nativeEvent}) => {
+                    if (isCloseToBottom(nativeEvent)) {
+                    this.handlePagination()
+                    }
+                }}
             >
                 <SearchBar ref={this.txt}/>
                 <View style={Style.mainContent}>
@@ -102,14 +110,18 @@ class SearchScreen extends Component {
                     }
                 </View>
             </ScrollView>
-            <View style={Style.buttonFot}>
-                <TouchableOpacity onPress={()=>{this.setState({ModalSort: true})}}>
-                    <Awsome name='sort-amount-asc' size={24}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{this.setState({visibleModal: true})}}>
-                    <Awsome name='filter' size={24}/>
-                </TouchableOpacity>
-            </View>
+            {
+                this.state.result.length == 0 ? (<></>) : (
+                    <View style={Style.buttonFot}>
+                    <TouchableOpacity onPress={()=>{this.setState({ModalSort: true})}}>
+                        <Awsome name='sort-amount-asc' size={24}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{this.setState({visibleModal: true})}}>
+                        <Awsome name='filter' size={24}/>
+                    </TouchableOpacity>
+                </View>
+                )
+            }
             <Modal
                 animationType="slide"
                 transparent={true}

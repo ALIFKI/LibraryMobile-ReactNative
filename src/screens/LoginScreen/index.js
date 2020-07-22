@@ -57,7 +57,12 @@ class LoginScreen extends Component {
             }
             this.props.login(data).then((res)=>{
                 console.log(res.value.data.data)
-                this.props.navigation.navigate('dashboard')
+                if(res.value.data.data[0].role === 1){
+                    this.props.navigation.navigate('adminMain')
+                }
+                else{
+                    this.props.navigation.navigate('dashboard')
+                }
             }).catch((err)=>{
                 console.log(err.response)
                     Alert.alert(
