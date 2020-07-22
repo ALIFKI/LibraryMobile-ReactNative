@@ -91,7 +91,6 @@ class LoginScreen extends Component {
             SIZES: { BASE: 18, },
             // this will overwrite the Galio SIZES BASE value 16
             COLORS: { PRIMARY: '#3B5998', } 
-            // this will overwrite the Galio COLORS PRIMARY color #B23AFC
           };
         return (
             <>

@@ -72,6 +72,34 @@ const Style = StyleSheet.create({
     },
     modalHeader : {
         padding : 20
+    },
+    panelMain : {
+        width : ScreenWidth-100,
+        display : 'flex',
+        flexDirection : 'row',
+        justifyContent : 'space-between',
+        // flexWrap : 'wrap',
+        padding : 10,
+        alignItems : 'flex-start'   
+    },
+    panel : {
+        display : 'flex',
+        flexDirection : 'column',
+        justifyContent : 'center',
+        alignItems : 'center',
+        height : 70,
+        width : 70,
+        borderRadius : 25,
+        backgroundColor : 'white',
+        shadowColor: "#F9F9F9",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.32,
+        shadowRadius: 10.00,
+        
+        elevation: 2,
     }
 })
 

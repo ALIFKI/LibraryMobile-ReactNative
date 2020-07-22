@@ -9,7 +9,10 @@ import DetailScreen from '../screens/DetailScreen';
 import { navigationRef } from './RootNavigation';
 import SearchScreen from '../screens/SearchScreen';
 import {useStore,useSelector} from 'react-redux'
-import Drawer from '../components/DrawerComponents'
+import Drawer from '../components/DrawerComponents';
+import CreateScreen from '../screens/CreateScreen'
+
+
 const Stack = createStackNavigator();
 
 export default function Routes() {
@@ -21,6 +24,7 @@ export default function Routes() {
                 isLogin ? (
                     <>
                     <Stack.Screen name="adminMain" component={Drawer} options={{headerShown: false}}/>
+                    <Stack.Screen name="create" component={CreateScreen} options={{headerShown: false}}/>
                     <Stack.Screen name="dashboard" component={TabsBar} options={{headerShown: false}} />
                     <Stack.Screen name="detail" component={DetailScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="search" component={SearchScreen} options={{headerShown:false}}/>
