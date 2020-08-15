@@ -1,7 +1,4 @@
 # LibraryMobile-ReactNative
-![](https://i.imgur.com/ISldpR4.png)
-
-
 `LibraryMobile App` mobile app built with React Native and Redux which has [features](https://github.com/ALIFKI/LibraryMobile-ReactNative#features) such as login / register using JWT, pasword hashing, CORS, etc.
 
 ## :memo: Table Of Content
