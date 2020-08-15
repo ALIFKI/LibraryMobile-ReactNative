@@ -11,6 +11,8 @@ import SearchScreen from '../screens/SearchScreen';
 import {useStore,useSelector} from 'react-redux'
 import Drawer from '../components/DrawerComponents';
 import CreateScreen from '../screens/CreateScreen'
+import EditScreen from '../screens/editScreen'
+import editScreen from '../screens/editScreen';
 
 
 const Stack = createStackNavigator();
@@ -25,6 +27,7 @@ export default function Routes() {
                     <>
                     <Stack.Screen name="adminMain" component={Drawer} options={{headerShown: false}}/>
                     <Stack.Screen name="create" component={CreateScreen} options={{headerShown: false}}/>
+                    <Stack.Screen name="edite" component={editScreen} options={{headerShown: false}}/>
                     <Stack.Screen name="dashboard" component={TabsBar} options={{headerShown: false}} />
                     <Stack.Screen name="detail" component={DetailScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="search" component={SearchScreen} options={{headerShown:false}}/>

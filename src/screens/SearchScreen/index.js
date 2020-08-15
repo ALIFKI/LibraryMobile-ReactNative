@@ -142,8 +142,8 @@ class SearchScreen extends Component {
                         onValueChange={(itemValue, itemIndex) => this.setState({genre: itemValue})}
                     >
                         <Picker.Item label="Title" value="title" />
-                        <Picker.Item label="Genre" value="=genre" />
-                        <Picker.Item label="Author" value="=author" />
+                        <Picker.Item label="Genre" value="genre" />
+                        <Picker.Item label="Author" value="author" />
                     </Picker>
                 </View>
             </Modal>
@@ -164,7 +164,7 @@ class SearchScreen extends Component {
                     <Picker
                         selectedValue={this.state.sort}
                         style={{ height: 50, width: 150 }}
-                        onValueChange={(itemValue, itemIndex) => this.setState({sort: itemValue},this.handleSearch)}
+                        onValueChange={(itemValue, itemIndex) => this.setState({sort: itemValue,ModalSort : false},this.handeleResetSearch)}
                     >
                         <Picker.Item label="A-z" value="0" />
                         <Picker.Item label="Z-a" value="1" />

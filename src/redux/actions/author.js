@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {API_URL} from '@env'
 
 export const getAuthor =(data)=>{
     return {
@@ -7,7 +7,7 @@ export const getAuthor =(data)=>{
         payload :       
         axios({
             method : 'GET',
-            url : `${process.env.REACT_APP_URL_API}api/authors?search=&page=1&limit=10&sort=0&by=author`,
+            url : `${API_URL}api/authors?search=&page=1&limit=10&sort=0&by=author`,
             headers : {
               Authorization : data.token
           },
@@ -21,7 +21,7 @@ export const deleteAuthor =(data)=>{
         payload :       
         axios({
             method : 'DELETE',
-            url : `${process.env.REACT_APP_URL_API}api/authors/${data.id}`,
+            url : `${API_URL}api/authors/${data.id}`,
             headers : {
               Authorization : data.token
           },
@@ -35,7 +35,7 @@ export const addAuthor = (data) =>{
         type : "ADD",
         payload : axios({
             method : "POST",
-            url : `${process.env.REACT_APP_URL_API}api/authors`,
+            url : `${API_URL}api/authors`,
             headers : {
                 Authorization : data.token
             },
@@ -51,7 +51,7 @@ export const editAuthor = (data) =>{
         type : "EDIT",
         payload : axios({
             method : "PUT",
-            url : `${process.env.REACT_APP_URL_API}api/authors/${data.id_author}`,
+            url : `${API_URL}api/authors/${data.id_author}`,
             headers : {
                 Authorization : data.token
             },

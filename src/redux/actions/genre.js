@@ -22,7 +22,7 @@ export const deleteGenre =(data)=>{
         payload :       
         axios({
             method : 'DELETE',
-            url : `${process.env.REACT_APP_URL_API}api/genres/${data.id}`,
+            url : `${API_URL}api/genres/${data.id}`,
             headers : {
               Authorization : data.token
           },
@@ -36,7 +36,7 @@ export const addGenre = (data) =>{
         type : "ADD",
         payload : axios({
             method : "POST",
-            url : `${process.env.REACT_APP_URL_API}api/genres`,
+            url : `${API_URL}api/genres`,
             headers : {
                 Authorization : data.token
             },
@@ -52,7 +52,7 @@ export const editGenre = (data) =>{
         type : "EDIT",
         payload : axios({
             method : "PUT",
-            url : `${process.env.REACT_APP_URL_API}api/genres/${data.id_genre}`,
+            url : `${API_URL}api/genres/${data.id_genre}`,
             headers : {
                 Authorization : data.token
             },

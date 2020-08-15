@@ -3,13 +3,18 @@ import { Text, View,ScrollView,TouchableOpacity,Modal,Alert } from 'react-native
 import Style from './Style'
 import SearchBar from '../../components/SearchBar'
 import Awsome from 'react-native-vector-icons/FontAwesome'
+import { connect } from 'react-redux'
+import {logout} from '../../redux/actions/auth'
 
-export default class adminScreen extends Component {
+class adminScreen extends Component {
     constructor(props){
         super(props)
         this.state ={
             modalVisible : false
         }
+    }
+    handleLogout = ()=>{
+        this.props.logout()
     }
     render() {
         return (
@@ -19,7 +24,13 @@ export default class adminScreen extends Component {
                         <SearchBar/>
                             <View style={Style.CardContent}>
                                 <View style={Style.cardBody}>
-                                    <Text>Book Total</Text>
+                                    <View>
+                                    <Text style={Style.title}>Book Total : </Text>
+                                    <Text style={Style.count}>4567</Text>
+                                    </View>
+                                    <View style={Style.data}>
+                                        <Awsome name="book" size={90}/>
+                                    </View>
                                 </View>
                             </View>
                     </View>
@@ -27,7 +38,12 @@ export default class adminScreen extends Component {
                     <TouchableOpacity style={Style.buttonCreate}
                     onPress={()=>{this.setState({modalVisible : true})}}
                     >
-                        <Awsome name='search' size={24} />
+                        <Awsome name='plus' size={24} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={Style.buttonLogout}
+                    onPress={this.handleLogout}
+                    >
+                        <Awsome name='sign-out' size={24} />
                     </TouchableOpacity>
                     <Modal
                         animationType='fade'
@@ -67,3 +83,11 @@ export default class adminScreen extends Component {
         )
     }
 }
+const mapStateToProps = state =>({
+    user : state.auth,
+    bookData : state.book
+})
+
+const mapDispatchToProps = {logout}
+
+export default connect(mapStateToProps,mapDispatchToProps)(adminScreen)

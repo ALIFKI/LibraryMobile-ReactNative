@@ -73,13 +73,13 @@ const author = (state = initialState,action)=>{
             isLoading : false
         }
         case "EDIT_FULFILLED":
-        const newData = [...state.author];
-        const index = newData.findIndex(item => action.meta.id_author === item.id_author);
-        const item = newData[index];
-        newData.splice(index, 1, { ...item, ...action.meta });
+        // const newData = [...state.author];
+        // const index = newData.findIndex(item => action.meta.id_author === item.id_author);
+        // const item = newData[index];
+        // newData.splice(index, 1, { ...item, ...action.meta });
         return {
             ...state,
-            author : newData
+            // author : newData
         } 
         default: return state
     }

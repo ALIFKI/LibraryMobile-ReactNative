@@ -85,6 +85,7 @@ class LoginScreen extends Component {
                 { cancelable: false }
             )
         }
+        
     }
     render() {
         const customTheme = {

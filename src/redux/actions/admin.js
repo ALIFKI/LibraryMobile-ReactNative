@@ -20,7 +20,7 @@ export const deleteBook = (data)=>{
         payload :         
         axios({
             method : 'DELETE',
-            url : `${process.env.REACT_APP_URL_API}api/books/`+data.id,
+            url : `${API_URL}api/books/`+data.id,
             headers : {
                 Authorization : data.token
             }
@@ -53,7 +53,7 @@ export const editBook = (data)=>{
         payload :       
         axios({
               method : 'PUT',
-              url : `${process.env.REACT_APP_URL_API}api/books/${data.id}`,
+              url : `${API_URL}api/books/${data.id}`,
               data : data.formData,
               headers : {
                 'Content-Type' : 'multipart/form-data',

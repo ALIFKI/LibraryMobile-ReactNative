@@ -1,44 +1,57 @@
 import {StyleSheet,Dimensions} from 'react-native'
 
-
-const ScreenWidth = Dimensions.get('screen').width
-const ScreenHeight = Dimensions.get('screen').height
+const w = Dimensions.get('screen').width
+const h = Dimensions.get('screen').height
 const Style = StyleSheet.create({
-    container : {
-        height : ScreenHeight
-    },
     content : {
         padding : 16
     },
-    mainContent : {
-        display : 'flex',
-        flexDirection : 'column',
-    },
-    CardContent : {
-        paddingTop : 30,
+    head : {
+        top : -10,
+        left : -10,
+        position : 'absolute',
+        height : 90,
+        width : 90,
+        backgroundColor : 'white',
+        zIndex : 10,
+        borderRadius : 45,
         display : "flex",
         flexDirection : 'column',
-        justifyContent : 'center',
-        alignItems : 'center'
+        alignItems : 'center',
+        justifyContent : 'center'
     },
-    cardBody : {
+    bot : {
+        top : -10,
+        right : -10,
+        position : 'absolute',
+        height : 90,
+        width : 90,
+        backgroundColor : 'white',
+        zIndex : 10,
+        borderRadius : 45,
+        display : "flex",
+        flexDirection : 'column',
+        alignItems : 'center',
+        justifyContent : 'center'
+    },
+    mainContent : {
+        paddingTop : 100,
+        display : 'flex',
+        flexDirection : 'column',
+        padding : 10
+    },
+    card : {
         display : 'flex',
         flexDirection : 'row',
-        justifyContent :'space-between',
-        padding : 20,
-        height : 150,
-        width : ScreenWidth -39,
+        height : 70,
+        width : 320,
+        borderRadius : 10,
         backgroundColor : 'white',
-        borderRadius : 20,
+        alignItems : 'center',
+        padding : 10,
+        marginTop: 10,
+        justifyContent : 'space-around'
     },
-    title : {
-        fontFamily : 'Poppins-Medium'  
-    },
-    count : {
-        fontFamily : 'Poppins-Bold',
-        fontSize : 40
-    }
-    ,
     buttonCreate : {
         height : 70,
         width : 70,
@@ -61,33 +74,11 @@ const Style = StyleSheet.create({
 
         elevation: 4,
     },
-    buttonLogout : {
-        height : 70,
-        width : 70,
-        backgroundColor : 'white',
-        display : "flex",
-        flexDirection : 'column',
-        justifyContent : 'center',
-        alignItems : 'center',
-        borderRadius : 40,
-        position : 'absolute',
-        bottom : 100,
-        left : 20,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-
-        elevation: 4,
-    },
     modalShadow : {
         backgroundColor : 'black',
         opacity : 0.3,
-        height : ScreenHeight,
-        width : ScreenWidth
+        height : h,
+        width : w
     },
     modalContent : {
         opacity : 1,
@@ -108,13 +99,13 @@ const Style = StyleSheet.create({
         padding : 20
     },
     panelMain : {
-        width : ScreenWidth-100,
+        width : w,
         display : 'flex',
         flexDirection : 'row',
-        justifyContent : 'space-between',
+        alignItems :'center',
+        justifyContent : 'center',
         // flexWrap : 'wrap',
         padding : 10,
-        alignItems : 'flex-start'   
     },
     panel : {
         display : 'flex',
@@ -134,7 +125,38 @@ const Style = StyleSheet.create({
         shadowRadius: 10.00,
         
         elevation: 2,
-    }
+    },
+    input: {
+        // borderRadius : 40,
+        // borderWidth : 1,
+        // borderColor : 'white',
+        // marginTop: 30,
+        // color: 'white',
+        color : 'black',
+        backgroundColor :"black",
+        shadowColor: "#F9F9F9",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.32,
+        shadowRadius: 10.00,
+        
+        elevation: 0.2,
+      },
+      inputTxt: {
+        // borderRadius : 40,
+        // borderWidth : 1,
+        // borderColor : 'white',
+        // marginTop: 30,
+        // color: 'white',
+        borderRadius : 10,
+        color : 'black',
+        backgroundColor :"white"
+      },
+      formInput : {
+          padding : 5
+      },
 })
 
 module.exports = Style

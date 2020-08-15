@@ -136,7 +136,33 @@ const DetailStyle = StyleSheet.create({
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#e5e5e5",
-          }
+          },
+          actionBtn : {
+              display : 'flex',
+              flexDirection : 'row',
+              justifyContent : 'center',
+              alignItems : 'center',
+              height : 60,
+              width : 60,
+              backgroundColor : 'black',
+              position : 'absolute',
+              right : 10,
+              borderRadius : 30,
+              bottom : 10
+          },
+          editBtn : {
+            display : 'flex',
+            flexDirection : 'row',
+            justifyContent : 'center',
+            alignItems : 'center',
+            height : 60,
+            width : 60,
+            backgroundColor : '#f5af19',
+            position : 'absolute',
+            right : 10,
+            borderRadius : 30,
+            bottom : 80
+        }
 })
 
 module.exports = DetailStyle
